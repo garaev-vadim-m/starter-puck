@@ -1,0 +1,6 @@
+@font-face {
+  font-family: Inter;
+  src:
+    local('Inter'),
+    url('@/shared/fonts/Inter.ttf') format('woff');
+}

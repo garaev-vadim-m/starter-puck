@@ -1,0 +1,4 @@
+@layer default, framework,global, components;
+@import 'element-plus/dist/index.css' layer(framework);
+@import 'default/index.css' layer(default);
+@import 'global/index.css' layer(global);
