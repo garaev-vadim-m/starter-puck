@@ -28,8 +28,6 @@ export default ({ mode }) => {
       cssCodeSplit: true,
       sourcemap: false,
       minify: 'terser',
-      emptyOutDir: true,
-      outDir: '../bx-site/dist/',
       assetsDir: '',
       rollupOptions: {
         output: {

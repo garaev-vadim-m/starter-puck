@@ -1,4 +1,5 @@
-const fs = require('fs');
+/* eslint-disable */
+import fs from 'fs';
 
 const sourceFolderPath = 'dist/dist';
 const destinationFolderPath = 'dist';
