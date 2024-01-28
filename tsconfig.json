@@ -14,7 +14,7 @@
     "noImplicitThis": false,
     "sourceMap": true,
     "baseUrl": "./",
-    "types": ["element-plus/global", "vite/client"],
+    "types": ["element-plus/global", "vite/client", "vitest/globals"],
     "typeRoots": ["./node_modules/@types",
       "src/widgets/types/window.d.ts",
       "src/widgets/types/shims-vue.d.ts",
