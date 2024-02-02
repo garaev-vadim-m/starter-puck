@@ -2,23 +2,32 @@
 import { ref } from 'vue';
 type News = {
   id: number;
-  news: string;
+  name: string;
 };
-const news = ref([]);
-const addForm = ref<{ id: number; name: string }>({
-  id: Math.random(),
+const news = ref<News[]>([]);
+const addForm = ref<News>({
+  id: 0,
   name: '',
 });
+const inputRef = ref();
 function addNews() {
-  return news.value.push(addForm.value);
+  addForm.value.id++;
+  news.value.push(addForm.value);
+  addForm.value = {
+    id: Math.random(),
+    name: '',
+  };
+  return (inputRef.value.value = '');
 }
 </script>
 
 <template>
   <div>
-    <ElInput class="input" v-model="addForm.name" @keypress.enter="addNews" />
+    <ElInput class="input" v-model="addForm.name" ref="inputRef" />
     <ElButton type="primary" @click="addNews">Add news</ElButton>
   </div>
-  {{ news }}
+  <div v-for="(item, index) in news" :key="item.id">
+    <p id="1">{{ item.name }}</p>
+  </div>
 </template>
 <style scoped lang="css"></style>

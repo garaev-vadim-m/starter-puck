@@ -1,20 +1,21 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
     "skipLibCheck": true,
+    "module": "CommonJS",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
+    "inlineSourceMap": false,
     "noImplicitThis": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "baseUrl": "./",
-    "types": ["element-plus/global", "vite/client", "vitest/globals"],
+    "types": ["element-plus/global", "vite/client", "vitest/globals","cypress", "node"],
     "typeRoots": ["./node_modules/@types",
       "src/widgets/types/window.d.ts",
       "src/widgets/types/shims-vue.d.ts",
@@ -25,7 +26,7 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost", "WebWorker"],
     "allowJs": true,
-    "outDir": "dist",
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
