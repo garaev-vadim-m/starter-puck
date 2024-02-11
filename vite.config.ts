@@ -6,22 +6,7 @@ export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
-    plugins: [
-      vue({
-        script: {
-          defineModel: true,
-          propsDestructure: true,
-        },
-      }),
-      splitVendorChunkPlugin(),
-    ],
-    test: {
-      // enable jest-like global test APIs
-      globals: true,
-      // simulate DOM with happy-dom
-      // (requires installing happy-dom as a peer dependency)
-      environment: 'happy-dom',
-    },
+    plugins: [vue(), splitVendorChunkPlugin()],
     resolve: {
       alias: {
         '@/': `${path.resolve(__dirname, 'src')}/`,
@@ -77,6 +62,8 @@ export default ({ mode }) => {
     },
 
     server: {
+      port: Number(process.env.VITE_PORT),
+      host: 'localhost',
       proxy: {
         '/api': {
           //domains local backend .env.development.local

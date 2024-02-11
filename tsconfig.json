@@ -19,7 +19,8 @@
     "typeRoots": ["./node_modules/@types",
       "src/widgets/types/window.d.ts",
       "src/widgets/types/shims-vue.d.ts",
-      "src/widgets/types/env.d.ts"
+      "src/widgets/types/env.d.ts",
+      "src/widgets/types/cypress.d.ts"
     ],
     "paths": {
       "@/*": ["src/*"]
@@ -28,6 +29,6 @@
     "allowJs": true,
     "outDir": "dist"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx",  "**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
