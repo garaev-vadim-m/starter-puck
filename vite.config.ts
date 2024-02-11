@@ -1,8 +1,10 @@
+/* eslint-disable */
 import path from 'path';
 import { defineConfig, splitVendorChunkPlugin, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 /** @type {import('vite').UserConfig} */
-export default ({ mode }) => {
+
+export default ({ mode }: {mode: any}) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
@@ -29,16 +31,16 @@ export default ({ mode }) => {
             }
           },
           minifyInternalExports: true,
-          assetFileNames: (assetInfo) => {
+          assetFileNames: (assetInfo: any) => {
             const info = assetInfo.name.split('.');
             const extType = info[info.length - 1];
-            if (/\.(png|jpe?g|gif|svg|webp|webm|mp3)$/.test(assetInfo.name)) {
+            if (/\.(png|jpe?g|gif|svg|webp|webm|mp3)$/.test(<string>assetInfo.name)) {
               return `dist/assets/media/[name]-[hash].${extType}`;
             }
-            if (/\.(css)$/.test(assetInfo.name)) {
+            if (/\.(css)$/.test(<string>assetInfo.name)) {
               return `dist/assets/css/[name]-[hash].${extType}`;
             }
-            if (/\.(woff|woff2|eot|ttf|otf)$/.test(assetInfo.name)) {
+            if (/\.(woff|woff2|eot|ttf|otf)$/.test(<string>assetInfo.name)) {
               return `dist/assets/fonts/[name]-[hash].${extType}`;
             }
             return `dist/[name]-[hash].${extType}`;
@@ -64,6 +66,10 @@ export default ({ mode }) => {
     server: {
       port: Number(process.env.VITE_PORT),
       host: 'localhost',
+      //use with wsl
+      watch: {
+        usePolling: true
+      },
       proxy: {
         '/api': {
           //domains local backend .env.development.local
