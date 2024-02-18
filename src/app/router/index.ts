@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
+import { users } from '@/entities/Auth/model/auth';
 declare module 'vue-router' {
   interface RouteMeta {
     /**
@@ -23,21 +23,41 @@ export const router = createRouter({
       path: '/',
       name: 'Home',
       meta: {
+        requiresAuth: true,
         layout: 'MainLayout',
         title: '',
       },
       component: () => import('@/pages/HomePage.vue'),
     },
     {
+      path: '/authentication',
+      name: 'Authentication',
+      meta: {
+        requiresAuth: false,
+        layout: 'AuthLayout',
+        title: '',
+      },
+      component: () => import('@/pages/AuthPage.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       meta: {
+        requiresAuth: true,
         layout: 'MainLayout',
         title: '',
       },
       component: () => import('@/pages/NotFoundPage.vue'),
     },
   ],
+});
+router.beforeEach((to) => {
+  const { isAuth } = users();
+  const requiresAuth = to.meta.requiresAuth;
+  const user = localStorage.getItem('users');
+  const watchedUser = JSON.parse(user);
+  if (isAuth || watchedUser?.isAuth) return true;
+  if (requiresAuth) return { name: 'Authentication' };
 });
 
 export default router;

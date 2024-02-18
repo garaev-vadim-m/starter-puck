@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import Auth from '@/widgets/Auth/ui/Auth.vue';
+import AuthFeatures from '@/features/Auth/ui/AuthFeatures.vue';
 </script>
+
 <template>
-  <div class="auth-page">
-    <Auth />
-  </div>
+  <AuthFeatures />
 </template>
 
 <style scoped lang="css"></style>

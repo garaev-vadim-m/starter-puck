@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RouterView, useRoute } from 'vue-router';
 import { computed, defineAsyncComponent, watch, ref } from 'vue';
-
 const route = useRoute();
 const layoutName = ref<string>('MainLayout');
 
