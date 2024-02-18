@@ -69,7 +69,6 @@ npx cz
 - [Документация Vite](https://vitejs.dev/)
 
 ### Vue
-
 - [Документация Vue](https://vuejs.org/)
 
 ### Vue Router

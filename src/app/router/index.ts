@@ -51,13 +51,13 @@ export const router = createRouter({
     },
   ],
 });
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to) => {
   const { isAuth } = users();
+  const requiresAuth = to.meta.requiresAuth;
   const user = localStorage.getItem('users');
   const watchedUser = JSON.parse(user);
-  if (watchedUser?.isAuth) next({ name: 'Home' });
-  if (to.meta.requiresAuth && !isAuth) next({ name: 'Authentication' });
-  next();
+  if (isAuth || watchedUser?.isAuth) return true;
+  if (requiresAuth) return { name: 'Authentication' };
 });
 
 export default router;

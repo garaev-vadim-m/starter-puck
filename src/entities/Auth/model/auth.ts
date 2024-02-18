@@ -14,10 +14,10 @@ export const users = defineStore('useUserStore', () => {
           isAuth: isAuth.value,
         };
         localStorage.setItem('users', JSON.stringify(userData));
-        await router.push({ name: 'Home' });
-        return ElNotification.success({
+        ElNotification.success({
           title: 'Добро пожаловать!',
         });
+        return router.push({ name: 'Home' });
       }
       return ElNotification.error({
         title: 'Не верные данные',
