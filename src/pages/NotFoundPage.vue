@@ -3,4 +3,4 @@
   <div>NotFound</div>
 </template>
 
-<style scoped lang="css"></style>
+<style module lang="scss"></style>

@@ -54,8 +54,8 @@ export const router = createRouter({
 router.beforeEach((to) => {
   const { isAuth } = users();
   const requiresAuth = to.meta.requiresAuth;
-  const user = localStorage.getItem('users');
-  const watchedUser = JSON.parse(user);
+  const user: string | null = localStorage.getItem('users');
+  const watchedUser = JSON.parse(String(user));
   if (isAuth || watchedUser?.isAuth) return true;
   if (requiresAuth) return { name: 'Authentication' };
 });

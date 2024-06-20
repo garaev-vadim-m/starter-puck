@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <div>HeaderList</div>
+  <div>HeaderNavbar</div>
 </template>
 
-<style scoped lang="css"></style>
+<style module lang="scss"></style>

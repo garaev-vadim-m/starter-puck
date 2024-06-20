@@ -15,12 +15,11 @@
     "noImplicitThis": false,
     "sourceMap": false,
     "baseUrl": "./",
-    "types": ["element-plus/global", "vite/client", "vitest/globals","cypress", "node"],
+    "types": ["element-plus/global", "vite/client", "vitest/globals","cypress", "node", "vite"],
     "typeRoots": ["./node_modules/@types",
-      "src/widgets/types/window.d.ts",
-      "src/widgets/types/shims-vue.d.ts",
-      "src/widgets/types/env.d.ts",
-      "src/widgets/types/cypress.d.ts"
+      "src/app/types/window.d.ts",
+      "src/app/types/shims-vue.d.ts",
+      "src/app/types/env.d.ts",
     ],
     "paths": {
       "@/*": ["src/*"]

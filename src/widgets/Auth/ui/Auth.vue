@@ -6,4 +6,4 @@ import AuthFeatures from '@/features/Auth/ui/AuthFeatures.vue';
   <AuthFeatures />
 </template>
 
-<style scoped lang="css"></style>
+<style module lang="scss"></style>

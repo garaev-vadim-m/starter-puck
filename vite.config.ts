@@ -1,26 +1,25 @@
 /* eslint-disable */
 import path from 'path';
-import { defineConfig, splitVendorChunkPlugin, loadEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx'
 /** @type {import('vite').UserConfig} */
 
-export default ({ mode }: {mode: any}) => {
+export default ({ mode }: { mode: any }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
-    plugins: [vue(), splitVendorChunkPlugin()],
+    plugins: [vue(), vueJsx()],
     resolve: {
       alias: {
         '@/': `${path.resolve(__dirname, 'src')}/`,
       },
       extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
-    assetsInclude: ['dist/**/*.gltf'],
     build: {
       chunkSizeWarningLimit: 1024,
       assetsInlineLimit: 4096,
       cssCodeSplit: true,
-      sourcemap: false,
       minify: 'terser',
       assetsDir: '',
       rollupOptions: {
@@ -34,13 +33,13 @@ export default ({ mode }: {mode: any}) => {
           assetFileNames: (assetInfo: any) => {
             const info = assetInfo.name.split('.');
             const extType = info[info.length - 1];
-            if (/\.(png|jpe?g|gif|svg|webp|webm|mp3)$/.test(<string>assetInfo.name)) {
+            if (/\.(png|jpe?g|gif|svg|webp|webm|mp3)$/.test(assetInfo.name)) {
               return `dist/assets/media/[name]-[hash].${extType}`;
             }
-            if (/\.(css)$/.test(<string>assetInfo.name)) {
+            if (/\.(css)$/.test(assetInfo.name)) {
               return `dist/assets/css/[name]-[hash].${extType}`;
             }
-            if (/\.(woff|woff2|eot|ttf|otf)$/.test(<string>assetInfo.name)) {
+            if (/\.(woff|woff2|eot|ttf|otf)$/.test(assetInfo.name)) {
               return `dist/assets/fonts/[name]-[hash].${extType}`;
             }
             return `dist/[name]-[hash].${extType}`;
@@ -58,9 +57,8 @@ export default ({ mode }: {mode: any}) => {
     css: {
       devSourcemap: true,
       modules: {
-        scopeBehaviour: 'global',
+        scopeBehaviour: 'local',
       },
-      transformer: 'postcss',
     },
 
     server: {
@@ -68,7 +66,7 @@ export default ({ mode }: {mode: any}) => {
       host: 'localhost',
       //use with wsl
       watch: {
-        usePolling: true
+        usePolling: true,
       },
       proxy: {
         '/api': {

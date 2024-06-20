@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MainLayout from '@/widgets/layouts/MainLayout.vue';
+</script>
 
-<template></template>
-<style scoped lang="css"></style>
+<template>
+  <MainLayout>
+    <div>Home</div>
+  </MainLayout>
+</template>
+<style module lang="scss"></style>
