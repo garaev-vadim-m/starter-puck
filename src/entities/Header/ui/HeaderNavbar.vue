@@ -1,6 +1,13 @@
 <script setup lang="ts"></script>
 <template>
-  <div>HeaderNavbar</div>
+  <div :class="headerNavbar.navbar">HeaderNavbar</div>
 </template>
 
-<style module lang="scss"></style>
+<style module="headerNavbar" lang="scss">
+.navbar {
+  display: flex;
+  height: 64px;
+  padding: 8px;
+  align-items: center;
+}
+</style>

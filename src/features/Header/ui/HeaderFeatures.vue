@@ -2,15 +2,7 @@
 import HeaderNavbar from '@/entities/Header/ui/HeaderNavbar.vue';
 </script>
 <template>
-  <div :class="header.header">
-    <HeaderNavbar />
-  </div>
+  <HeaderNavbar />
 </template>
 
-<style module="header" lang="scss">
-.header {
-  height: 72px;
-  position: sticky;
-  top: 0;
-}
-</style>
+<style module="header" lang="scss"></style>

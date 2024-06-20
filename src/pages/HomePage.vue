@@ -4,7 +4,13 @@ import MainLayout from '@/widgets/layouts/MainLayout.vue';
 
 <template>
   <MainLayout>
-    <div>Home</div>
+    <div :class="home.home">
+      <div>HomePage</div>
+    </div>
   </MainLayout>
 </template>
-<style module lang="scss"></style>
+<style module="home" lang="scss">
+.home {
+  height: calc(100vh - 160px);
+}
+</style>
