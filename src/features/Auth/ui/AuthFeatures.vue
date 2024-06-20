@@ -8,7 +8,7 @@ import AuthForm from '@/entities/Auth/ui/AuthForm.vue';
   </div>
 </template>
 
-<style scoped lang="css">
+<style module lang="scss">
 .auth-features {
   width: 100%;
   height: 100vh;

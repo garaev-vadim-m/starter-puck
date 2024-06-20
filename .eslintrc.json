@@ -9,8 +9,7 @@
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/typescript/recommended",
-    "plugin:prettier/recommended",
-    "plugin:cypress/recommended"
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest"
@@ -18,19 +17,10 @@
   "globals": {
     "cy": true
   },
-  "plugins": ["cypress"],
   "rules": {
-    // console.log\console.error относятся к откладке и не должны попадать в production по умолчанию, кроме режима отладки.
-    // ошибки могут логироваться в bug tracker, например sentry или показываться в интерфейсе.
     "no-console": "error",
     "jest/expect-expect": "off",
     "no-debugger": "warn",
-    "cypress/no-assigning-return-values": "error",
-    "cypress/no-unnecessary-waiting": "error",
-    "cypress/assertion-before-screenshot": "warn",
-    "cypress/no-force": "warn",
-    "cypress/no-async-tests": "error",
-    "cypress/no-pause": "error",
     "no-empty": [
       "error",
       {
@@ -47,11 +37,66 @@
     ],
     // https://eslint.org/docs/rules/no-unused-vars#args
     "@typescript-eslint/no-empty-function": "error",
-    "vue/multi-word-component-names": "off",
     "vue/no-unused-components": "error",
     "vue/no-unused-vars": "error",
     "vue/no-reserved-component-names": "off",
-    // временно выключено
+    "vue/multi-word-component-names": ["error", {
+      "ignores": [
+        "Home", "Header"
+      ]
+    }],
+    "vue/attributes-order": ["error", {
+      "order": [
+        "DEFINITION",
+        "LIST_RENDERING",
+        "CONDITIONALS",
+        "RENDER_MODIFIERS",
+        "GLOBAL",
+        ["UNIQUE", "SLOT"],
+        "TWO_WAY_BINDING",
+        "OTHER_DIRECTIVES",
+        "OTHER_ATTR",
+        "EVENTS",
+        "CONTENT"
+      ],
+      "alphabetical": false
+    }],
+    "vue/no-v-html": "error",
+    "vue/no-dupe-keys":"error",
+    "vue/no-export-in-script-setup": "error",
+    "vue/attribute-hyphenation": ["error","never"],
+    "vue/block-lang": ["error",
+      {
+        "script": {
+          "lang": "ts"
+        }
+      }
+    ],
+    "vue/component-api-style": ["error",
+      ["script-setup", "composition"] // "script-setup", "composition", "composition-vue2", or "options"
+    ],
+    "vue/define-macros-order": ["error", {
+      "order": ["defineProps", "defineEmits"],
+      "defineExposeLast": false
+    }],
+    "vue/define-props-declaration": ["error", "type-based"],
+    "vue/enforce-style-attribute": [
+      "error",
+      { "allow": ["module"] }
+    ],
+    "vue/require-macro-variable-name": ["error", {
+      "defineProps": "props",
+      "defineEmits": "emit",
+      "defineSlots": "slots",
+      "useSlots": "slots",
+      "useAttrs": "attrs"
+    }],
+    "vue/v-on-function-call": ["error",
+      "never",
+      {
+        "ignoreIncludesComment": false
+      }
+    ],
     "vue/component-tags-order": [
       "error",
       {

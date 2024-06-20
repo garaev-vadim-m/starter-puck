@@ -4,8 +4,13 @@
  */
 </script>
 <template>
-  <main>
+  <main :class="authLayout.authLayout">
     <slot />
   </main>
 </template>
-<style scoped lang="css"></style>
+<style module="authLayout" lang="scss">
+.authLayout {
+  background-color: #000;
+  height: 100vh;
+}
+</style>

@@ -2,12 +2,15 @@
 /**
  * MainLayout
  */
+import Header from '@/features/Header/ui/HeaderFeatures.vue';
 </script>
 <template>
-  <header>Header</header>
+  <header>
+    <Header />
+  </header>
   <main>
     <slot />
   </main>
   <footer>Footer</footer>
 </template>
-<style scoped lang="css"></style>
+<style module lang="scss"></style>

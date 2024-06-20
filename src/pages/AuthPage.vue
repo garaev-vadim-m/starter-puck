@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import Auth from '@/widgets/Auth/ui/Auth.vue';
+import AuthLayout from '@/widgets/layouts/AuthLayout.vue';
 </script>
 <template>
-  <div class="auth-page">
-    <Auth />
-  </div>
+  <AuthLayout>
+    <div class="auth-page">
+      <Auth />
+    </div>
+  </AuthLayout>
 </template>
 
-<style scoped lang="css"></style>
+<style module lang="scss"></style>
