@@ -20,6 +20,7 @@
       "src/app/types/window.d.ts",
       "src/app/types/shims-vue.d.ts",
       "src/app/types/env.d.ts",
+      "src/app/types/scss.d.ts"
     ],
     "paths": {
       "@/*": ["src/*"]

@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import MainLayout from '@/widgets/layouts/MainLayout.vue';
+import { BaseButton } from '@/shared/ui/BaseButton/BaseButton';
 </script>
 
 <template>
   <MainLayout>
     <div :class="home.home">
-      <div>HomePage</div>
+      <div>
+        <BaseButton>12</BaseButton>
+      </div>
     </div>
   </MainLayout>
 </template>

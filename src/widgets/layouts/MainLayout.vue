@@ -5,7 +5,8 @@
 import Header from '@/features/Header/ui/HeaderFeatures.vue';
 </script>
 <template>
-  <header :class="mainLayout.header">
+  <header :class="[mainLayout.header, mainLayout['header-info']]">
+    kek
     <Header />
   </header>
   <main :class="mainLayout.main">
@@ -21,9 +22,14 @@ import Header from '@/features/Header/ui/HeaderFeatures.vue';
   background-color: rgb(255, 255, 255);
 }
 .header {
-  box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
+  &-info {
+    color: red;
+  }
 }
 .footer {
   position: sticky;
@@ -32,6 +38,9 @@ import Header from '@/features/Header/ui/HeaderFeatures.vue';
   align-items: center;
   height: 64px;
   padding: 8px;
+  -webkit-box-shadow: 0px -5px 5px -2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px -5px 5px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -5px 5px -2px rgba(0, 0, 0, 0.1);
 }
 .main {
   height: 100%;
